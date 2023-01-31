@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="En">
-    <head>
-    </head>
-    <body>
-        <h2>Home</h2>
-    </body>
+
+<head>
+</head>
+
+<body>
+    <div>
+        {% for pet in pets %}
+        <a href="{% url 'pet_detail' pet.id %}">
+            <div class="petname">
+                <h3>{{ pet.name|capfirst }}</h3>
+        </a>
+        <p>{{ pet.species }}</p>
+        {% if pet.breed %}
+            <p>Breed: {{ pet.breed }} </p>
+        {% endif %}
+        <p class="hidden">{{ pet.description }}</p>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+
 </html>
